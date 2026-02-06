@@ -66,14 +66,22 @@ const DateChallenge = ({ onSuccess }: DateChallengeProps) => {
             <h1 className="font-display text-2xl md:text-3xl font-semibold text-gradient-rose">
               Qual o dia que nos tornamos um só?
             </h1>
-            <Tooltip>
+            <Tooltip delayDuration={100}>
               <TooltipTrigger asChild>
-                <button type="button" className="mt-1 text-accent hover:text-accent/80 transition-colors">
+                <button 
+                  type="button" 
+                  className="mt-1 text-accent hover:text-accent/80 transition-colors cursor-help"
+                  aria-label="Dica"
+                >
                   <HelpCircle className="w-5 h-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent className="max-w-xs text-center font-body bg-card border-border">
-                <p className="text-romantic-cream">O dia da entrega dos anéis, olhe seu Instagram</p>
+              <TooltipContent 
+                side="bottom" 
+                sideOffset={8}
+                className="max-w-xs text-center font-body bg-card border-border z-[100] px-4 py-2"
+              >
+                <p className="text-romantic-cream text-sm">O dia da entrega dos anéis, olhe seu Instagram</p>
               </TooltipContent>
             </Tooltip>
           </div>
