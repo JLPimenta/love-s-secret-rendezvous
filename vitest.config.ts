@@ -5,6 +5,10 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   base: "/love-s-secret-rendezvous/",
+  server: {
+    host: "::",
+    port: 8081,
+  },
   test: {
     environment: "jsdom",
     globals: true,
