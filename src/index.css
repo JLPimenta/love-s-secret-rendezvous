@@ -4,97 +4,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Romantic & Elegant Design System - All colors in HSL */
+/* Dark Romantic & Elegant Design System - All colors in HSL */
 
 @layer base {
   :root {
-    /* Rose/Blush - Primary romantic color */
-    --background: 340 30% 97%;
-    --foreground: 340 40% 15%;
+    /* Deep dark romantic theme */
+    --background: 340 30% 6%;
+    --foreground: 340 20% 92%;
 
-    /* Cards with soft cream tones */
-    --card: 30 50% 98%;
-    --card-foreground: 340 40% 15%;
+    /* Cards with rich dark tones */
+    --card: 340 25% 10%;
+    --card-foreground: 340 20% 92%;
 
-    --popover: 30 50% 98%;
-    --popover-foreground: 340 40% 15%;
+    --popover: 340 25% 12%;
+    --popover-foreground: 340 20% 92%;
 
-    /* Burgundy/Wine - Primary accent */
-    --primary: 340 65% 35%;
-    --primary-foreground: 30 50% 98%;
+    /* Rich burgundy/wine primary */
+    --primary: 340 70% 50%;
+    --primary-foreground: 340 20% 98%;
 
-    /* Soft rose for secondary */
-    --secondary: 340 35% 90%;
-    --secondary-foreground: 340 65% 25%;
+    /* Muted rose secondary */
+    --secondary: 340 40% 18%;
+    --secondary-foreground: 340 20% 90%;
 
-    /* Muted dusty rose */
-    --muted: 340 20% 92%;
-    --muted-foreground: 340 15% 45%;
+    /* Subtle muted tones */
+    --muted: 340 20% 15%;
+    --muted-foreground: 340 15% 55%;
 
     /* Gold accent */
-    --accent: 40 75% 55%;
-    --accent-foreground: 340 40% 15%;
+    --accent: 40 80% 55%;
+    --accent-foreground: 340 30% 8%;
 
     /* Soft error states */
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 30 50% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 20% 98%;
 
-    --border: 340 25% 88%;
-    --input: 340 25% 88%;
-    --ring: 340 65% 35%;
+    --border: 340 30% 18%;
+    --input: 340 30% 15%;
+    --ring: 340 70% 50%;
 
     --radius: 0.75rem;
 
     /* Custom romantic tokens */
-    --romantic-rose: 340 75% 65%;
-    --romantic-blush: 340 40% 85%;
-    --romantic-burgundy: 340 65% 25%;
-    --romantic-gold: 40 75% 55%;
-    --romantic-cream: 30 50% 96%;
+    --romantic-rose: 340 75% 60%;
+    --romantic-blush: 340 50% 25%;
+    --romantic-burgundy: 340 65% 35%;
+    --romantic-gold: 40 80% 55%;
+    --romantic-cream: 30 40% 85%;
+    --romantic-deep: 340 40% 8%;
     
     /* Gradients */
-    --gradient-romantic: linear-gradient(135deg, hsl(340 75% 65%) 0%, hsl(340 65% 35%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(40 75% 55%) 0%, hsl(35 70% 45%) 100%);
+    --gradient-romantic: linear-gradient(135deg, hsl(340 75% 45%) 0%, hsl(340 65% 25%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(35 70% 40%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(340 30% 8%) 0%, hsl(340 40% 4%) 100%);
     
     /* Shadows */
-    --shadow-romantic: 0 10px 40px -10px hsl(340 65% 35% / 0.3);
-    --shadow-soft: 0 4px 20px -5px hsl(340 30% 50% / 0.15);
-  }
-
-  .dark {
-    --background: 340 30% 8%;
-    --foreground: 340 20% 95%;
-
-    --card: 340 25% 12%;
-    --card-foreground: 340 20% 95%;
-
-    --popover: 340 25% 12%;
-    --popover-foreground: 340 20% 95%;
-
-    --primary: 340 55% 60%;
-    --primary-foreground: 340 30% 8%;
-
-    --secondary: 340 30% 20%;
-    --secondary-foreground: 340 20% 95%;
-
-    --muted: 340 20% 18%;
-    --muted-foreground: 340 15% 60%;
-
-    --accent: 40 65% 50%;
-    --accent-foreground: 340 30% 8%;
-
-    --destructive: 0 60% 45%;
-    --destructive-foreground: 340 20% 95%;
-
-    --border: 340 20% 20%;
-    --input: 340 20% 20%;
-    --ring: 340 55% 60%;
-
-    --romantic-rose: 340 65% 55%;
-    --romantic-blush: 340 30% 30%;
-    --romantic-burgundy: 340 55% 50%;
-    --romantic-gold: 40 65% 50%;
-    --romantic-cream: 340 20% 15%;
+    --shadow-romantic: 0 10px 40px -10px hsl(340 70% 50% / 0.4);
+    --shadow-soft: 0 4px 20px -5px hsl(340 50% 30% / 0.3);
+    --shadow-glow: 0 0 30px hsl(340 70% 50% / 0.3);
   }
 }
 
@@ -130,12 +97,20 @@
     background: var(--gradient-gold);
   }
 
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+
   .shadow-romantic {
     box-shadow: var(--shadow-romantic);
   }
 
   .shadow-soft {
     box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
   }
 
   .text-romantic-rose {
@@ -150,6 +125,10 @@
     color: hsl(var(--romantic-gold));
   }
 
+  .text-romantic-cream {
+    color: hsl(var(--romantic-cream));
+  }
+
   .bg-romantic-cream {
     background-color: hsl(var(--romantic-cream));
   }
@@ -157,40 +136,141 @@
   .bg-romantic-blush {
     background-color: hsl(var(--romantic-blush));
   }
+
+  .bg-romantic-deep {
+    background-color: hsl(var(--romantic-deep));
+  }
+
+  /* Glass effect */
+  .glass {
+    background: hsl(340 25% 10% / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(340 30% 25% / 0.5);
+  }
+
+  /* Text gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(35 90% 65%) 50%, hsl(40 80% 55%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-rose {
+    background: linear-gradient(135deg, hsl(340 75% 60%) 0%, hsl(340 80% 70%) 50%, hsl(340 75% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 /* Floating hearts animation */
 @keyframes float-up {
   0% {
     opacity: 0;
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
   }
   10% {
-    opacity: 1;
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.4;
   }
   90% {
-    opacity: 1;
+    opacity: 0.2;
   }
   100% {
     opacity: 0;
-    transform: translateY(-100vh) rotate(720deg);
+    transform: translateY(-100vh) rotate(720deg) scale(1.2);
   }
 }
 
 .animate-float-heart {
-  animation: float-up 15s ease-in-out infinite;
+  animation: float-up 18s ease-in-out infinite;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 3s ease-in-out infinite;
 }
 
 /* Pulse glow animation */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(340 65% 35% / 0.3);
+    box-shadow: 0 0 20px hsl(340 70% 50% / 0.3), 0 0 40px hsl(340 70% 50% / 0.1);
   }
   50% {
-    box-shadow: 0 0 40px hsl(340 65% 35% / 0.5);
+    box-shadow: 0 0 30px hsl(340 70% 50% / 0.5), 0 0 60px hsl(340 70% 50% / 0.2);
   }
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(40 80% 55% / 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Gradient border */
+.border-gradient {
+  position: relative;
+  border: none;
+}
+
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, hsl(340 70% 50%) 0%, hsl(40 80% 55%) 50%, hsl(340 70% 50%) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Decorative divider */
+.divider-ornate {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.divider-ornate::before,
+.divider-ornate::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(340 70% 50% / 0.5), transparent);
 }

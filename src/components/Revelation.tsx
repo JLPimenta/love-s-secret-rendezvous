@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, MapPin, Calendar, Clock } from "lucide-react";
+import { Heart, MapPin, Calendar, Clock, Sparkles, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
@@ -80,18 +80,32 @@ const Revelation = ({ userEmail }: RevelationProps) => {
 
   return (
     <>
-      <Card className="w-full max-w-lg shadow-romantic border-romantic-blush/50 animate-scale-in bg-card/80 backdrop-blur-sm">
-        <CardHeader className="text-center space-y-4 pb-2">
+      <Card className="w-full max-w-lg glass border-gradient shadow-glow animate-scale-in">
+        <CardHeader className="text-center space-y-6 pb-4">
+          {/* Celebration header */}
           <div className="flex justify-center">
-            <div className="p-4 rounded-full bg-romantic-blush animate-pulse-glow">
-              <Heart className="w-10 h-10 text-primary fill-primary" />
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/40 rounded-full blur-2xl animate-pulse" />
+              <div className="relative p-6 rounded-full bg-gradient-romantic shadow-romantic animate-pulse-glow">
+                <Heart className="w-12 h-12 text-primary-foreground fill-primary-foreground" />
+              </div>
+              <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-accent animate-pulse" />
+              <Sparkles className="absolute -bottom-2 -left-2 w-5 h-5 text-accent animate-pulse" style={{ animationDelay: '0.3s' }} />
+              <PartyPopper className="absolute top-0 -left-4 w-5 h-5 text-accent animate-bounce" />
+              <PartyPopper className="absolute top-0 -right-4 w-5 h-5 text-accent animate-bounce" style={{ animationDelay: '0.2s', transform: 'scaleX(-1)' }} />
             </div>
           </div>
-          <div className="space-y-2">
-            <h1 className="font-display text-3xl md:text-4xl font-semibold text-foreground">
+
+          {/* Ornate divider */}
+          <div className="divider-ornate text-accent">
+            <Sparkles className="w-4 h-4" />
+          </div>
+
+          <div className="space-y-3">
+            <h1 className="font-display text-3xl md:text-4xl font-semibold text-gradient-gold">
               Parabéns, você conseguiu! ❤️
             </h1>
-            <p className="font-body text-xl text-muted-foreground">
+            <p className="font-body text-xl text-romantic-cream/80">
               Agora, te convido a relembrar essa data :3
             </p>
           </div>
@@ -99,37 +113,41 @@ const Revelation = ({ userEmail }: RevelationProps) => {
 
         <CardContent className="pt-4 space-y-6">
           {/* Venue Information */}
-          <div className="space-y-4 p-4 bg-romantic-cream rounded-lg">
-            <div className="text-center space-y-1">
-              <h2 className="font-display text-2xl font-semibold text-primary">
+          <div className="space-y-4 p-5 rounded-xl bg-muted/30 border border-border/50 backdrop-blur-sm">
+            <div className="text-center space-y-2">
+              <h2 className="font-display text-2xl font-semibold text-gradient-rose">
                 {VENUE.name}
               </h2>
               <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="w-4 h-4 text-primary" />
                 <span className="font-body">{VENUE.address}</span>
               </div>
               <p className="font-body text-sm text-muted-foreground">{VENUE.city}</p>
             </div>
 
-            <div className="flex justify-center gap-6">
+            <div className="divider-ornate text-accent/50 py-2">
+              <Heart className="w-3 h-3 fill-current" />
+            </div>
+
+            <div className="flex justify-center gap-8">
               <div className="flex items-center gap-2 text-foreground">
-                <Calendar className="w-5 h-5 text-primary" />
+                <Calendar className="w-5 h-5 text-accent" />
                 <span className="font-body font-medium">{DATE}</span>
               </div>
               <div className="flex items-center gap-2 text-foreground">
-                <Clock className="w-5 h-5 text-primary" />
+                <Clock className="w-5 h-5 text-accent" />
                 <span className="font-body font-medium">{TIME}</span>
               </div>
             </div>
           </div>
 
           {/* Google Maps Embed */}
-          <div className="rounded-lg overflow-hidden border border-romantic-blush/50">
+          <div className="rounded-xl overflow-hidden border border-border/50 shadow-soft">
             <iframe
               src={VENUE.mapsEmbed}
               width="100%"
-              height="200"
-              style={{ border: 0 }}
+              height="180"
+              style={{ border: 0, filter: 'grayscale(20%) contrast(1.1)' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -138,45 +156,58 @@ const Revelation = ({ userEmail }: RevelationProps) => {
           </div>
 
           {/* Decision Section */}
-          <div className="space-y-4 pt-2">
-            <p className="font-body text-lg text-center text-foreground">
+          <div className="space-y-5 pt-2">
+            <p className="font-body text-lg text-center text-romantic-cream/90">
               Caso você também esteja como eu, morrendo de saudades, confirme abaixo:
             </p>
 
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <Button
                 variant="outline"
                 onClick={() => handleDecision("declined")}
                 disabled={decision !== null || isLoading}
-                className="flex-1 h-12 text-lg font-body border-romantic-blush hover:bg-romantic-blush/50 disabled:opacity-50"
+                className="flex-1 h-14 text-lg font-body border-border/50 bg-muted/30 hover:bg-destructive/20 hover:border-destructive/50 hover:text-destructive disabled:opacity-50 transition-all duration-300"
               >
                 Declinar
               </Button>
               <Button
                 onClick={() => handleDecision("confirmed")}
                 disabled={decision !== null || isLoading}
-                className="flex-1 h-12 text-lg font-body bg-primary hover:bg-primary/90 shadow-romantic disabled:opacity-50"
+                className="flex-1 h-14 text-lg font-body bg-gradient-romantic hover:opacity-90 shadow-romantic disabled:opacity-50 transition-all duration-300 hover:shadow-glow"
               >
+                <Heart className="w-5 h-5 mr-2 fill-current" />
                 {isLoading ? "Enviando..." : "Confirmar"}
               </Button>
             </div>
+          </div>
+
+          {/* Bottom decorative element */}
+          <div className="flex justify-center gap-2 opacity-40 pt-2">
+            <Heart className="w-3 h-3 text-primary fill-primary" />
+            <Heart className="w-4 h-4 text-primary fill-primary" />
+            <Heart className="w-3 h-3 text-primary fill-primary" />
           </div>
         </CardContent>
       </Card>
 
       {/* Confirmation Modal */}
       <Dialog open={showConfirmModal} onOpenChange={setShowConfirmModal}>
-        <DialogContent className="bg-card border-romantic-blush/50">
-          <DialogHeader className="text-center space-y-4">
+        <DialogContent className="glass border-gradient max-w-md">
+          <DialogHeader className="text-center space-y-6">
             <div className="flex justify-center">
-              <div className="p-4 rounded-full bg-romantic-blush">
-                <Heart className="w-8 h-8 text-primary fill-primary" />
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/30 rounded-full blur-xl" />
+                <div className="relative p-5 rounded-full bg-gradient-romantic shadow-romantic animate-pulse-glow">
+                  <Heart className="w-10 h-10 text-primary-foreground fill-primary-foreground" />
+                </div>
+                <PartyPopper className="absolute -top-2 -right-2 w-6 h-6 text-accent animate-bounce" />
+                <Sparkles className="absolute -bottom-1 -left-2 w-5 h-5 text-accent animate-pulse" />
               </div>
             </div>
-            <DialogTitle className="font-display text-2xl text-foreground">
+            <DialogTitle className="font-display text-3xl text-gradient-gold">
               Que alegria!
             </DialogTitle>
-            <DialogDescription className="font-body text-lg text-muted-foreground">
+            <DialogDescription className="font-body text-xl text-romantic-cream/80">
               Aguardo você ansiosamente. ❤️
             </DialogDescription>
           </DialogHeader>
@@ -185,17 +216,17 @@ const Revelation = ({ userEmail }: RevelationProps) => {
 
       {/* Decline Alert */}
       <AlertDialog open={showDeclineModal} onOpenChange={setShowDeclineModal}>
-        <AlertDialogContent className="bg-card border-romantic-blush/50">
-          <AlertDialogHeader className="text-center space-y-4">
+        <AlertDialogContent className="glass border-border/50 max-w-md">
+          <AlertDialogHeader className="text-center space-y-6">
             <div className="flex justify-center">
-              <div className="p-4 rounded-full bg-muted">
-                <Heart className="w-8 h-8 text-muted-foreground" />
+              <div className="p-5 rounded-full bg-muted/50 border border-border/50">
+                <Heart className="w-10 h-10 text-muted-foreground" />
               </div>
             </div>
-            <AlertDialogTitle className="font-display text-2xl text-foreground">
+            <AlertDialogTitle className="font-display text-3xl text-foreground">
               :(
             </AlertDialogTitle>
-            <AlertDialogDescription className="font-body text-lg text-muted-foreground">
+            <AlertDialogDescription className="font-body text-xl text-muted-foreground">
               Valeu a tentativa. Eu ainda te amo muito!
             </AlertDialogDescription>
           </AlertDialogHeader>
