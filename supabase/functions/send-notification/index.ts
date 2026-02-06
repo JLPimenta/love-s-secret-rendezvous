@@ -82,7 +82,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending email to owner...");
     emailPromises.push(
       resend.emails.send({
-        from: "Surpresa de Amor <onboarding@resend.dev>",
+        from: "Surpresa de Amor <convite@devjlpimenta.com.br>",
         to: [OWNER_EMAIL],
         subject: ownerSubject,
         html: ownerHtml,
@@ -113,7 +113,7 @@ const handler = async (req: Request): Promise<Response> => {
       console.log("Sending confirmation email to user...");
       emailPromises.push(
         resend.emails.send({
-          from: "Surpresa de Amor <onboarding@resend.dev>",
+          from: "Surpresa de Amor <convite@devjlpimenta.com.br>",
           to: [userEmail],
           subject: "💕 Nosso Encontro Especial - Confirmado!",
           html: userHtml,
