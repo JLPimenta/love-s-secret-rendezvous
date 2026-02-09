@@ -20,11 +20,11 @@ interface RevelationProps {
 
 // Placeholder para o local - editar quando definido
 const VENUE = {
-  name: "Restaurante a definir",
-  address: "Endereço a definir",
-  city: "Cidade, Estado",
-  mapsUrl: "https://maps.google.com/?q=-23.5505,-46.6333",
-  mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1976509!2d-46.6355!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjgiUyA0NsKwMzgnMDcuOCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+  name: "Expresso Sushi | Jardins",
+  address: "Rua SE 9, Alameda Jardim, Sala 2 - Plano Diretor Sul",
+  city: "Palmas, Tocantins",
+  mapsUrl: "https://maps.google.com/?q=-10.19032,-48.32510",
+  mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1348.837920178706!2d-48.32592321217423!3d-10.190367316025082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9324cb5a12a011ff%3A0xfd32fe2798b998f9!2sExpresso%20Sushi%20%7C%20Jardins!5e0!3m2!1spt-BR!2sbr!4v1770648020524!5m2!1spt-BR!2sbr"
 };
 
 const DATE = "14 de fevereiro de 2026";
@@ -219,6 +219,9 @@ const Revelation = ({ userEmail }: RevelationProps) => {
                             <DialogPrimitive.Description className="font-body text-xl text-romantic-cream/80">
                                 Aguardo você ansiosamente. ❤️
                             </DialogPrimitive.Description>
+                            <DialogPrimitive.Description className="font-body text-l text-romantic-cream/80">
+                                Olhe o seu email! Chegou algo por lá (talvez esteja no spam) 😳
+                            </DialogPrimitive.Description>
                         </div>
                         <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                             <X className="h-4 w-4" />
@@ -244,6 +247,9 @@ const Revelation = ({ userEmail }: RevelationProps) => {
             <AlertDialogDescription className="font-body text-xl text-muted-foreground">
               Valeu a tentativa. Eu ainda te amo muito!
             </AlertDialogDescription>
+              <AlertDialogDescription className="font-body text-l text-muted-foreground">
+                  (E você ainda tem meu voucher de beijinhos)
+              </AlertDialogDescription>
           </AlertDialogHeader>
         </AlertDialogContent>
       </AlertDialog>
